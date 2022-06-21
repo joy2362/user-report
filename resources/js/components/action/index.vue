@@ -120,7 +120,7 @@ export default {
         }
     },
     methods:{
-        //send email
+        //send email for both type of user
         async sendEmailAction(){
             let url = "/nova-vendor/user-report/email/send";
             await Nova.request().post(url, {
