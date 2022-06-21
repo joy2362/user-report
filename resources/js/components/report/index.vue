@@ -117,7 +117,7 @@ export default {
             selectedResources: [],
             selectAllChecked:false,
             currentPage:1,
-            perPage:2,
+            perPage:10,
             hasNextPage:false,
             hasPreviousPage:false,
             selectedDeleteConfirm:false,
