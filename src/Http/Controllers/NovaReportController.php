@@ -9,7 +9,7 @@ use App\Models\SiteReport;
 use App\Notifications\sendEmailUser;
 use Illuminate\Http\Request;
 
-class reportController extends Controller
+class NovaReportController extends Controller
 {
     public function index(): \Illuminate\Http\JsonResponse
     {

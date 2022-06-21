@@ -1,8 +1,8 @@
-<?php
+ <?php
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Joy2362\UserReport\Http\Controllers\reportController;
+use Joy2362\UserReport\Http\Controllers\NovaReportController;
 
 
 /*
