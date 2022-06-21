@@ -16,14 +16,14 @@ use Joy2362\UserReport\Http\Controllers\NovaReportController;
 |
 */
 
- Route::get('/',reportController::class . '@index');
+ Route::get('/',NovaReportController::class . '@index');
 
- Route::get('/report',reportController::class . '@report');
- Route::get('/report/{id}/view',reportController::class . '@view');
+ Route::get('/report',NovaReportController::class . '@report');
+ Route::get('/report/{id}/view',NovaReportController::class . '@view');
 
- Route::get('/report/{id}/delete',reportController::class . '@destroy');
- Route::post('/delete/multiple',reportController::class . '@destroyAll');
+ Route::get('/report/{id}/delete',NovaReportController::class . '@destroy');
+ Route::post('/delete/multiple',NovaReportController::class . '@destroyAll');
 
- Route::post('/status/change',reportController::class . '@ChangeStatus');
+ Route::post('/status/change',NovaReportController::class . '@ChangeStatus');
 
- Route::post('/email/send',reportController::class . '@emailSend');
+ Route::post('/email/send',NovaReportController::class . '@emailSend');
