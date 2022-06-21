@@ -1,5 +1,7 @@
 <?php
+
 namespace Joy2362\UserReport\Http\Controllers;
+
 use App\Http\Controllers\Controller;
 use App\Models\Buyer;
 use App\Models\Seller;
@@ -7,7 +9,7 @@ use App\Models\SiteReport;
 use App\Notifications\sendEmailUser;
 use Illuminate\Http\Request;
 
-class UserReportController extends Controller
+class reportController extends Controller
 {
     public function index(): \Illuminate\Http\JsonResponse
     {
@@ -99,7 +101,7 @@ class UserReportController extends Controller
 
     private function selectUser($type,$user){
         if($type == "author"){
-           $user =  $this->selectAuthor($user);
+            $user =  $this->selectAuthor($user);
         }
         if($type == "against"){
             $user = $this->selectAgainst($user);
@@ -110,15 +112,15 @@ class UserReportController extends Controller
     public function emailSend(Request $request): \Illuminate\Http\JsonResponse
     {
 
-       if($request->requestType === "single"){
+        if($request->requestType === "single"){
             $user  = $this->selectUser($request->receiver,$request->resource);
-           $user->notify(new sendEmailUser($request->subject,$request->body,null));
-       }else{
-           foreach ( $request->resource as $row){
-               $user  = $this->selectUser($request->receiver,$row);
-               $user->notify(new sendEmailUser($request->subject,$request->body,null));
-           }
-       }
+            $user->notify(new sendEmailUser($request->subject,$request->body,null));
+        }else{
+            foreach ( $request->resource as $row){
+                $user  = $this->selectUser($request->receiver,$row);
+                $user->notify(new sendEmailUser($request->subject,$request->body,null));
+            }
+        }
 
         return response()->json("success");
     }
